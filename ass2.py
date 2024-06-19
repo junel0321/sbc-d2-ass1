@@ -2,7 +2,7 @@ from random import randint
 
 print("Welcome to Bootcamp Lottery!")
 
-# Placr your bet number
+# Place your bet number
 bet1 = int(input("Enter 1st Coordinate (0-9): "))
 bet2 = int(input("Enter 2nd Coordinate (0-9): "))
 bet3 = int(input("Enter 3rd Coordinate (0-9): "))
