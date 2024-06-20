@@ -1,34 +1,26 @@
 from random import randint
 
-user = input("FOLD OR UNFOLD? ")
+P1 = input("P1, choose FOLD or UNFOLD (or type 'exit' to quit): ").upper()
 
-print(f"USER : {user} ")
-C2 = randint(1,2)
-if C2 == 1:
-    print("C2 : FOLD")
+if P1 == "EXIT":
+    print("Game over. Thanks for playing!")
+elif P1 not in ["FOLD", "UNFOLD"]:
+    print("Invalid choice. Please choose FOLD or UNFOLD.")
 else:
-    print("C2 : UNFOLD")
+    C2 = "UNFOLD" if P1 == "FOLD" else "FOLD"
+    C3 = "FOLD" if randint(1, 2) == 1 else "UNFOLD"
 
-C3 = randint(1,2)
-if C3 == 1:
-    print("C3 : FOLD")
-else:
-    print("C3 : UNFOLD")
+    print(f"P1: {P1}")
+    print(f"C2 picks: {C2}")
+    print(f"C3 picks: {C3}")
 
-        
-if (user == "FOLD" and C2 == 1 and C3 == 1) or (user == "UNFOLD" and C2 == 2 and C3 == 2):
-    print("DRAW")
-
-elif (user == "FOLD" and C2 == 2 and C3 == 1) or (user == "UNFOLD" and C2 == 1 and C3 == 2):
-    print("C2 wins")
-
-
-elif (user == "FOLD" and C2 == 1 and C3 == 2) or (user == "UNFOLD" and C2 == 2 and C3 == 1):
-    print("C3 wins")
-
-
-elif (user == "UNFOLD" and C2 == 1 and C3 == 1) or (user == "FOLD" and C2 == 2 and C3 == 2):
-    print("User wins")
-
-else:
-    print("TRY AGAIN")
+    if (P1 == "FOLD" and C2 == "FOLD") or (P1 == "UNFOLD" and C2 == "UNFOLD"):
+        print("Result: It's a tie!\n")
+    elif (P1 == "FOLD" and C2 == "UNFOLD"):
+        print("Result: P1 wins.\n")
+    elif (P1 == "FOLD" and C3 == "UNFOLD"):
+        print("Result: P1 wins.\n")
+    elif (P1 == "UNFOLD" and C2 == "FOLD"):
+        print("Result: C2 wins.\n")
+    else:
+        print("Result: C2 wins the game.\n")
